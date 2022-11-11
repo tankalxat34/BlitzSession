@@ -20,7 +20,10 @@ app.get('/auth', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.render("full_stat")
+    lesta_auth = req.query
+    res.render("full_stat", {
+        lesta_auth: lesta_auth
+    })
 })
 
 app.listen(PORT, () => {

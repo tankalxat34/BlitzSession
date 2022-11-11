@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 
-<%
-const USER = {}; 
-const TOKEN = "" 
-%>
-
 <html>
     <head>
         <%- include("./partials/head") %>
@@ -12,12 +7,18 @@ const TOKEN = ""
 
     <body>
         <div class="title-block">
-            <p><% if (Object.keys(USER).length == 0) { %>
-                <a class="btn btn-primary" href="/auth">Войти в аккаунт</a>
-                <p style="margin-top: 15px;">Для авторизации используется аккаунт в Lesta Games</p>
-            <% } else {%>
-
-            <% } %></p>
+            <h1 style="color: #CED6D5;"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="" width="20px"> BlitzSession</h1>
+            <div>
+                <% if (Object.keys(lesta_auth).length == 0) { %>
+                    <p style="margin-top: 15px;">Необходимо <a href="/auth">войти в аккаунт</a>. Для авторизации используется аккаунт в Lesta Games.</p>
+                <% } else if (Object.keys(lesta_auth).length && lesta_auth.status === "ok") {%>
+                    <h1>
+                        <%= lesta_auth.nickname %>
+                    </h1>
+                <% }  else {%>
+                    <h1 style="color: #8e0000">Вы отменили вход в аккаунт</h1>
+                <% } %> 
+            </div>
         </div>
     </body>
 
