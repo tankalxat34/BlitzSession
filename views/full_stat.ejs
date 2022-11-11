@@ -7,18 +7,19 @@
 
     <body>
         <div class="title-block">
-            <h1 style="color: #CED6D5;"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="" width="20px"> BlitzSession</h1>
-            <div>
-                <% if (Object.keys(lesta_auth).length == 0) { %>
-                    <p style="margin-top: 15px;">Необходимо <a href="/auth">войти в аккаунт</a>. Для авторизации используется аккаунт в Lesta Games.</p>
-                <% } else if (Object.keys(lesta_auth).length && lesta_auth.status === "ok") {%>
-                    <h1>
-                        <%= lesta_auth.nickname %>
-                    </h1>
-                <% }  else {%>
-                    <h1 style="color: #8e0000">Вы отменили вход в аккаунт</h1>
-                <% } %> 
-            </div>
+            <h1 style="color: #CED6D5;"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="logo" width="22px"> BlitzSession - сессионная статистика</h1>
+        </div>
+
+        <div class="block">
+            <% if (Object.keys(lesta_auth).length == 0) { %>
+                <p style="margin-top: 15px;">Необходимо <a href="/auth">войти в аккаунт</a>. Для авторизации используется аккаунт в Lesta Games.</p>
+            <% } else if (Object.keys(lesta_auth).length && lesta_auth.status === "ok") {%>
+                <h1>
+                    <%= lesta_auth.nickname %>
+                </h1>
+            <% } else {%>
+                <h1 style="color: #b80000">Вы отменили вход в аккаунт</h1>
+            <% } %> 
         </div>
     </body>
 

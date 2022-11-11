@@ -36,6 +36,10 @@ div.title-block {
     position: sticky top;
 }
 
+.block {
+    margin: 2% 10%;
+}
+
 .btn {
     text-transform: uppercase;
     padding: 7px 15px;
