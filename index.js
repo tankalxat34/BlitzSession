@@ -11,13 +11,16 @@ app.set('view engine', 'ejs');
 // get constants from .env file
 const PORT = process.env.PORT || 3000
 const LESTA_APP_ID = process.env.LESTA_APP_ID
-const WG_APP_ID = process.env.WG_APP_ID
 
-app.get('/*', (req, res) => {
-    res.render("full_stat")
+// set up default path to content
+app.use(express.static(`${__dirname}/views`));
+
+app.get('/auth', (req, res) => {
+    res.redirect(`https://api.tanki.su/wot/auth/login/?application_id=${LESTA_APP_ID}&redirect_uri=http://localhost:${PORT}`)
 })
-app.get('/menu', (req, res) => {
-    res.render("menu")
+
+app.get('/', (req, res) => {
+    res.render("full_stat")
 })
 
 app.listen(PORT, () => {

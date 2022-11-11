@@ -1,0 +1,49 @@
+:root {
+    --bg-color: #121a22;
+    --bg-image: url("https://static-lwbp-ru.wgcdn.co/newstatic/images/3bff1da1dd3309879402997c1091c172.png");
+    --font-family: "segoe ui";
+    --font-first-color: #eeeeee;
+    --font-size: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: var(--bg-color);
+    background-image: var(--bg-image);
+    
+    font-family: var(--font-family);
+    color: var(--font-first-color);
+    font-size: var(--font-size);
+    font-weight: 500;
+}
+
+div.title-block {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    position: sticky top;
+}
+
+.btn {
+    text-transform: uppercase;
+    padding: 7px 15px;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background-color: var(--bg-color);
+    color: var(--font-first-color);
+    border: solid 2px var(--font-first-color);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: var(--font-first-color);
+    color: var(--bg-color);
+}

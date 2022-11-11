@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 
+<%
+const USER = {}; 
+const TOKEN = "" 
+%>
+
 <html>
     <head>
         <%- include("./partials/head") %>
     </head>
 
     <body>
-        <p>Hi!</p>
+        <div class="title-block">
+            <p><% if (Object.keys(USER).length == 0) { %>
+                <a class="btn btn-primary" href="/auth">Войти в аккаунт</a>
+                <p style="margin-top: 15px;">Для авторизации используется аккаунт в Lesta Games</p>
+            <% } else {%>
+
+            <% } %></p>
+        </div>
     </body>
+
+    <%- include("./partials/bottom") %> 
 </html>
