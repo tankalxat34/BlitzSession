@@ -1,2 +1,3 @@
-# tblitz-session
- App for view session statistic in game Tanks Blitz
+# BlitzSession
+
+This local application can show your session statistic in games Tanks Blitz or WoT Blitz.
