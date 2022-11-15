@@ -42,7 +42,11 @@ app.get("/stat", (req, res) => {
         resp.on('end', () => {
             let parsedData = JSON.parse(data);
             try {
-                res.render("stat", {lesta: parsedData.data[req.query.id], queryParams: req.query})                
+                if (parsedData.data[req.query.id]) {
+                    res.render("stat", {lesta: parsedData.data[req.query.id], queryParams: req.query})                
+                } else {
+                    res.send("Такого игрока не существует!")
+                }
             } catch {
                 res.send("Ошибка! Необходим параметр id в запросе")
             }
@@ -50,10 +54,8 @@ app.get("/stat", (req, res) => {
     })
 })
 
-app.get('/', (req, res) => {
-    console.log(req)
-    res.render("full_stat", { lesta_auth: {} })
-    // res.render("full_stat", {lesta_auth: })
+app.get('/*', (req, res) => {
+    res.redirect("/stat")
 })
 
 app.listen(PORT, () => {
