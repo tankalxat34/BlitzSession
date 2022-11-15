@@ -41,8 +41,11 @@ app.get("/stat", (req, res) => {
 
         resp.on('end', () => {
             let parsedData = JSON.parse(data);
-            // res.send(data)
-            res.render("stat", {lesta: parsedData.data[req.query.id]})
+            try {
+                res.render("stat", {lesta: parsedData.data[req.query.id], queryParams: req.query})                
+            } catch {
+                res.send("Ошибка! Необходим параметр id в запросе")
+            }
         });
     })
 })

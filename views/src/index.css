@@ -1,9 +1,16 @@
 :root {
-    --bg-color: #121a22;
+    /* --bg-color: #121a22; */
+    /* --bg-color:  */
     --bg-image: url("https://static-lwbp-ru.wgcdn.co/newstatic/images/3bff1da1dd3309879402997c1091c172.png");
     --font-family: "segoe ui";
     --font-first-color: #eeeeee;
     --font-size: 15px;
+
+    --skill-0: #ac0000;
+    --skill-1: #d2c800;
+    --skill-2: #1dac00;
+    --skill-3: #00a6ac;
+    --skill-4: #ac0098;
 }
 
 * {
@@ -11,9 +18,27 @@
     padding: 0;
 }
 
+html body {
+    height: 100%;
+}
+
+body {
+    /* background: rgb(96,0,105) no-repeat; */
+    /* background: linear-gradient(139deg, rgb(65, 0, 70) 18%, rgb(41, 4, 70) 51%); */
+    background-size: cover;
+    /* background-color: var(--skill-4); */
+    background-color: #212121;
+    /* box-shadow: inset #00a6ac; */
+
+}
+
 html {
-    background-color: var(--bg-color);
-    background-image: var(--bg-image);
+    /* background-color: var(--bg-color); */
+    /* background-image: var(--bg-image); */
+
+    /* background: rgb(96,0,105) no-repeat;
+    background: linear-gradient(139deg, rgba(96,0,105,1) 18%, rgba(57,6,100,1) 51%, rgba(137,5,255,1) 100%);
+    background-size: 100vh; */
     
     font-family: var(--font-family);
     color: var(--font-first-color);
@@ -62,5 +87,32 @@ div.title-block {
 }
 
 tr td {
-    padding: 3px 5px;
+    padding: 5px 20px;
+    font-size: 24px;
+}
+
+td.name {
+    /* text-decoration: solid; */
+    font-weight: 700;
+    color: #ffffffb3;
+}
+
+.s0 {
+    color: var(--skill-0)
+}
+
+.s1 {
+    color: var(--skill-1)
+}
+
+.s2 {
+    color: var(--skill-2)
+}
+
+.s3 {
+    color: var(--skill-3)
+}
+
+.s4 {
+    color: var(--skill-4)
 }
