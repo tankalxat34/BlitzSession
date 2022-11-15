@@ -6,6 +6,12 @@
     --font-first-color: #eeeeee;
     --font-size: 15px;
 
+    /*
+    <= 49
+    >= 50
+    >= 60
+    >= 70
+    */
     --skill-0: #ac0000;
     --skill-1: #d2c800;
     --skill-2: #1dac00;
@@ -98,21 +104,21 @@ td.name {
 }
 
 .s0 {
-    color: var(--skill-0)
+    color: var(--skill-0);
 }
 
 .s1 {
-    color: var(--skill-1)
+    color: var(--skill-1);
 }
 
 .s2 {
-    color: var(--skill-2)
+    color: var(--skill-2);
 }
 
 .s3 {
-    color: var(--skill-3)
+    color: var(--skill-3);
 }
 
 .s4 {
-    color: var(--skill-4)
+    color: var(--skill-4);
 }
