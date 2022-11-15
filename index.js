@@ -30,8 +30,6 @@ app.get("/auth_back", (req, res) => {
 
 app.get("/stat", (req, res) => {
     https.get(`https://api.wotblitz.ru/wotb/account/info/?application_id=${LESTA_APP_ID}&account_id=${req.query.id}`, (resp) => {
-        // res.render("stat", { lesta: { nickname: "nkatnt" } })
-        // console.log(resp)
         let data = '';
 
         // A chunk of data has been received.
@@ -48,7 +46,7 @@ app.get("/stat", (req, res) => {
                     res.send("Такого игрока не существует!")
                 }
             } catch {
-                res.send("Ошибка! Необходим параметр id в запросе")
+                res.render("stat_searchPlayer", {lesta: {nickname: null}})
             }
         });
     })
