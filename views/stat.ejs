@@ -10,6 +10,16 @@
             <h1 style="color: #CED6D5;"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="logo" width="22px"> Статистика игрока <%= lesta.nickname %></h1>
         </div>
 
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Процент побед</td>
+                        <td><%= Math.round((lesta.statistics.all.wins / lesta.statistics.all.battles) * 10000) / 100 %>%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         
 
     </body>
