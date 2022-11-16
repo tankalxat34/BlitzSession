@@ -1,10 +1,11 @@
 :root {
     /* --bg-color: #121a22; */
     /* --bg-color:  */
+    --bg-color: #212121;
     --bg-image: url("https://static-lwbp-ru.wgcdn.co/newstatic/images/3bff1da1dd3309879402997c1091c172.png");
     --font-family: "segoe ui";
     --font-first-color: #eeeeee;
-    --font-size: 15px;
+    --font-size: 16px;
 
     /*
     <= 49
@@ -33,7 +34,7 @@ body {
     /* background: linear-gradient(139deg, rgb(65, 0, 70) 18%, rgb(41, 4, 70) 51%); */
     background-size: cover;
     /* background-color: var(--skill-4); */
-    background-color: #212121;
+    background-color: var(--bg-color);
     /* box-shadow: inset #00a6ac; */
 
 }
@@ -52,32 +53,46 @@ html {
     font-weight: 500;
 }
 
+footer {
+    text-align: center;
+    justify-content: center;
+}
+
 input {
     background-color: var(--bg-color);
     border: solid 2px var(--font-first-color);
     /* border-radius: 5px; */
     padding: 5px 10px;
     color: var(--font-first-color);
-    font-size: 23px;
+    font-family: var(--font-family);
+    font-size: 21px;
     margin: 5px;
 
-    /* transition: .5s; */
+    outline:none;
+    outline-offset: 0;
+
 }
 
 input:focus {
-    border-color: white;
+    border-color: #ababab;
 }
 
 button {
     padding: 5px 15px;
     border: solid 2px;
-    /* font-size: var(--font-size); */
-    font-size: 21px;
+    font-size: 23px;
+    transition: .4s;
 }
 
 button.primary {
     color: var(--font-first-color);
     background-color: var(--bg-color);
+    border: solid 2px;
+}
+button.primary:hover {
+    background-color: var(--font-first-color);
+    color: var(--bg-color);
+    border: 2px solid var(--font-first-color);
 }
 
 a {
@@ -95,9 +110,10 @@ div.title-block {
     position: sticky top;
 }
 
-.block {
-    margin: 2% 10%;
+.footer-links a {
+    margin: 5px;
 }
+
 
 .btn {
     text-transform: uppercase;
