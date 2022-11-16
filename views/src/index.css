@@ -52,6 +52,34 @@ html {
     font-weight: 500;
 }
 
+input {
+    background-color: var(--bg-color);
+    border: solid 2px var(--font-first-color);
+    /* border-radius: 5px; */
+    padding: 5px 10px;
+    color: var(--font-first-color);
+    font-size: 23px;
+    margin: 5px;
+
+    /* transition: .5s; */
+}
+
+input:focus {
+    border-color: white;
+}
+
+button {
+    padding: 5px 15px;
+    border: solid 2px;
+    /* font-size: var(--font-size); */
+    font-size: 21px;
+}
+
+button.primary {
+    color: var(--font-first-color);
+    background-color: var(--bg-color);
+}
+
 a {
     color: #068881;
     transition: .3s;
