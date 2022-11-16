@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <%- include("./partials/head") %>
+    </head>
+
+    <body>
+        <div class="title-block">
+            <h1 style="color: #CED6D5;"><a href="https://tanksblitz.ru/ru/" target="_blank" title="Сайт игры Tanks Blitz"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="logo" width="22px"></a> Игрок <%= lesta.nickname %></h1>
+        </div>
+
+        <div>
+            
+            <table>
+                <tbody>
+                    <tr id="stat-win_percent">
+                        <td class="name">Побед</td>
+                        <td><%= lesta.statistics.all.wins.toLocaleString() %>/<%= lesta.statistics.all.battles.toLocaleString() %></td>
+                        <% let win_percent = Math.round((lesta.statistics.all.wins / lesta.statistics.all.battles) * 10000) / 100 %>
+                        <% let string_win_percent = win_percent.toLocaleString() %>
+                        <% if (win_percent >= 70) { %>
+                        <td class="s4"><%= string_win_percent %>%</td>
+                        <% } else if (win_percent >= 60) { %>
+                        <td class="s3"><%= string_win_percent %>%</td>
+                        <% } else if (win_percent >= 50) { %>
+                        <td class="s2"><%= string_win_percent %>%</td>
+                        <% } else if (win_percent >= 45) { %>
+                        <td class="s1"><%= string_win_percent %>%</td>
+                        <% } else { %>
+                        <td class="s0"><%= string_win_percent %>%</td>
+                        <% } %>
+                    </tr>
+
+                    <tr id="stat-xp_count">
+                        <td class="name">Опыт</td>
+                        <td><%= lesta.statistics.all.xp.toLocaleString() %></td>
+                        <td><%= Math.round((lesta.statistics.all.xp / lesta.statistics.all.battles)).toLocaleString() %></td>
+                    </tr>
+
+                    <tr id="stat-damage_dealt">
+                        <td class="name">Урон</td>
+                        <td><%= lesta.statistics.all.damage_dealt.toLocaleString() %></td>
+                        <td><%= Math.round((lesta.statistics.all.damage_dealt / lesta.statistics.all.battles)).toLocaleString() %></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        
+
+    </body>
+
+    <%- include("./partials/bottom") %> 
+</html>
