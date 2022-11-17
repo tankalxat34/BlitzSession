@@ -41,15 +41,36 @@ app.get("/stat", (req, res) => {
             let parsedData = JSON.parse(data);
             try {
                 if (parsedData.data[req.query.id]) {
-                    res.render("stat", {lesta: parsedData.data[req.query.id], queryParams: req.query})                
+                    res.render("stat", { lesta: parsedData.data[req.query.id], queryParams: req.query })
                 } else {
                     res.send("Такого игрока не существует!")
                 }
             } catch {
-                res.render("stat_searchPlayer", {lesta: {nickname: null}})
+                res.render("stat_searchPlayer", { lesta: { nickname: null } })
             }
         });
     })
+})
+
+app.get('/search', (req, res) => {
+    if (req.query.s instanceof Number) {
+        console.log(req.query.s)
+        res.redirect(`/stat?id=${req.query.s}`);
+    } else {
+        https.get(`https://api.wotblitz.ru/wotb/account/list/?application_id=${LESTA_APP_ID}&search=${req.query.s}`, (resp) => {
+            let data = '';
+
+            // A chunk of data has been received.
+            resp.on('data', (chunk) => {
+                data += chunk;
+            });
+
+            resp.on('end', () => {
+                let parsedData = JSON.parse(data);
+                res.render("search", {lesta_search: parsedData})
+            })
+        })
+    }
 })
 
 app.get('/*', (req, res) => {

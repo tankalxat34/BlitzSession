@@ -14,13 +14,25 @@
             <h2>BlitzSession - сессионная статистика Tanks Blitz</h2>
             <p>Осуществите поиск нужного аккаунта Tanks Blitz и запустите отслеживание статистики по основным показателям</p>
             <div style="margin-top: 20px;">
-                <input type="text" style="width: 30%;" placeholder="Введите никнейм...">
-                <button class="primary">Найти</button>
+                <input id="input-search" type="text" style="width: 40%;" placeholder="Введите никнейм или id игрока...">
+                <button id="btn-search" class="primary">Найти</button>
             </div>
         </div>
         
 
     </body>
+
+    <script>
+        document.getElementById("btn-search").addEventListener("click", () => {
+            window.open("/search?q=" + document.getElementById("input-search").value, "_self")
+        })
+
+        document.getElementById("input-search").addEventListener("keyup", (event) => {
+            if (event.keyCode === 13) {
+                window.open("/search?q=" + document.getElementById("input-search").value, "_self")
+            }
+        })
+    </script>
 
     <%- include("./partials/bottom") %> 
 </html>
