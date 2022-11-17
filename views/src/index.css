@@ -119,6 +119,16 @@ div.title-block {
     font-size: 22px;
 }
 
+.about_section {
+    margin: 20px 205px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.about_section p {
+    margin-top: 25px;
+}
+
 .btn {
     text-transform: uppercase;
     padding: 7px 15px;

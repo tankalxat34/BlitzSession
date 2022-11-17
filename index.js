@@ -12,21 +12,14 @@ app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000
 const LESTA_APP_ID = process.env.LESTA_APP_ID
 
+// init application name
+const APP_NAME = "Tanks Session"
+
 // https init
 const https = require('https')
 
 // set up default path to content
 app.use(express.static(`${__dirname}/views`));
-
-app.get('/auth', (req, res) => {
-    res.redirect(`https://api.tanki.su/wot/auth/login/?application_id=${LESTA_APP_ID}&redirect_uri=http://localhost:${PORT}/auth_back`)
-})
-
-app.get("/auth_back", (req, res) => {
-    res.redirect("/", {
-        lesta_auth: req.query
-    })
-})
 
 app.get("/stat", (req, res) => {
     https.get(`https://api.wotblitz.ru/wotb/account/info/?application_id=${LESTA_APP_ID}&account_id=${req.query.id}`, (resp) => {
@@ -41,12 +34,12 @@ app.get("/stat", (req, res) => {
             let parsedData = JSON.parse(data);
             try {
                 if (parsedData.data[req.query.id]) {
-                    res.render("stat", { lesta: parsedData.data[req.query.id], queryParams: req.query })
+                    res.render("stat", { lesta: parsedData.data[req.query.id], queryParams: req.query, APP_NAME: APP_NAME })
                 } else {
                     res.send("Такого игрока не существует!")
                 }
             } catch {
-                res.render("stat_searchPlayer", { lesta: { nickname: null } })
+                res.render("stat_searchPlayer", { lesta: { nickname: null, APP_NAME: APP_NAME } })
             }
         });
     })
@@ -69,10 +62,14 @@ app.get('/search', (req, res) => {
                 if (parsedData.status === "ok" && parsedData.meta.count === 1) {
                     res.redirect(`/stat?id=${parsedData.data[0].account_id}`);
                 }
-                res.render("search", { lesta: parsedData, q: req.query.q })
+                res.render("search", { lesta: parsedData, q: req.query.q, APP_NAME: APP_NAME })
             })
         })
     }
+})
+
+app.get('/about', (req, res) => {
+    res.render("about", {port: PORT, APP_NAME: APP_NAME})
 })
 
 app.get('/*', (req, res) => {

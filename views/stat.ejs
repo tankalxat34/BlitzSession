@@ -18,16 +18,17 @@
                         <% let win_percent = Math.round((lesta.statistics.all.wins / lesta.statistics.all.battles) * 10000) / 100 %>
                         <% let string_win_percent = win_percent.toLocaleString() %>
                         <% if (win_percent >= 70) { %>
-                        <td class="s4"><%= string_win_percent %>%</td>
+                        <td class="s4">
                         <% } else if (win_percent >= 60) { %>
-                        <td class="s3"><%= string_win_percent %>%</td>
+                        <td class="s3">
                         <% } else if (win_percent >= 50) { %>
-                        <td class="s2"><%= string_win_percent %>%</td>
+                        <td class="s2">
                         <% } else if (win_percent >= 45) { %>
-                        <td class="s1"><%= string_win_percent %>%</td>
+                        <td class="s1">
                         <% } else { %>
-                        <td class="s0"><%= string_win_percent %>%</td>
+                        <td class="s0">
                         <% } %>
+                        <%= string_win_percent %>%</td>
                     </tr>
 
                     <tr id="stat-xp_count">
@@ -50,6 +51,7 @@
     </body>
 
     <script>
+        document.title = "<%= lesta.nickname %> - " + document.title
         document.getElementById("title-text").innerHTML += " - <%= lesta.nickname %>"
     </script>
 
