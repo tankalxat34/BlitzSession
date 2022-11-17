@@ -6,9 +6,7 @@
     </head>
 
     <body>
-        <div class="title-block">
-            <h1 style="color: #CED6D5;"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="logo" width="22px"> BlitzSession - сессионная статистика</h1>
-        </div>
+        <%- include("./partials/title_block") %>
 
         <div class="block">
             <% if (Object.keys(lesta_auth).length == 0) { %>

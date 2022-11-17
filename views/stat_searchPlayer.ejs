@@ -6,15 +6,13 @@
     </head>
 
     <body>
-        <div class="title-block">
-            <h1 style="color: #CED6D5;"><a href="https://tanksblitz.ru/ru/" target="_blank" title="Сайт игры Tanks Blitz"><img src="https://static-lwbp-ru.wgcdn.co/newstatic/images/29799fddea8f26956fd13e2948fecc57.png" alt="logo" width="22px"></a> BlitzSession</h1>
-        </div>
+        <%- include("./partials/title_block") %>
 
         <div style="text-align: center; justify-content: center; margin: 15vh;">
             <h2>BlitzSession - сессионная статистика Tanks Blitz</h2>
             <p>Осуществите поиск нужного аккаунта Tanks Blitz и запустите отслеживание статистики по основным показателям</p>
             <div style="margin-top: 20px;">
-                <input id="input-search" type="text" style="width: 40%;" placeholder="Введите никнейм или id игрока...">
+                <input id="input-search" type="text" style="width: 50%;" placeholder="Введите никнейм или id игрока...">
                 <button id="btn-search" class="primary">Найти</button>
             </div>
         </div>

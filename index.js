@@ -53,11 +53,10 @@ app.get("/stat", (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    if (req.query.s instanceof Number) {
-        console.log(req.query.s)
-        res.redirect(`/stat?id=${req.query.s}`);
+    if (new Number(req.query.q).valueOf(req.query.q)) {
+        res.redirect(`/stat?id=${req.query.q}`);
     } else {
-        https.get(`https://api.wotblitz.ru/wotb/account/list/?application_id=${LESTA_APP_ID}&search=${req.query.s}`, (resp) => {
+        https.get(`https://api.wotblitz.ru/wotb/account/list/?application_id=${LESTA_APP_ID}&search=${req.query.q}`, (resp) => {
             let data = '';
 
             // A chunk of data has been received.
@@ -67,7 +66,10 @@ app.get('/search', (req, res) => {
 
             resp.on('end', () => {
                 let parsedData = JSON.parse(data);
-                res.render("search", {lesta_search: parsedData})
+                if (parsedData.status === "ok" && parsedData.meta.count === 1) {
+                    res.redirect(`/stat?id=${parsedData.data[0].account_id}`);
+                }
+                res.render("search", { lesta: parsedData, q: req.query.q })
             })
         })
     }
@@ -78,5 +80,5 @@ app.get('/*', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Example app listening on PORT ${PORT}`)
+    console.log(`BlitzSession app listening on PORT ${PORT}`)
 })

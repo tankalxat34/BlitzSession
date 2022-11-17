@@ -114,6 +114,10 @@ div.title-block {
     margin: 5px;
 }
 
+.search_results {
+    margin: 0 5%;
+    font-size: 22px;
+}
 
 .btn {
     text-transform: uppercase;
