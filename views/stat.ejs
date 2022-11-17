@@ -12,9 +12,14 @@
             
             <table>
                 <tbody>
-                    <tr id="stat-win_percent">
+                    <tr id="stat-battles">
+                        <td class="name">Боев</td>
+                        <td><%= lesta.statistics.all.battles.toLocaleString() %></td>
+                    </tr>
+
+                    <tr id="stat-wins">
                         <td class="name">Побед</td>
-                        <td><%= lesta.statistics.all.wins.toLocaleString() %>/<%= lesta.statistics.all.battles.toLocaleString() %></td>
+                        <td><%= lesta.statistics.all.wins.toLocaleString() %></td>
                         <% let win_percent = Math.round((lesta.statistics.all.wins / lesta.statistics.all.battles) * 10000) / 100 %>
                         <% let string_win_percent = win_percent.toLocaleString() %>
                         <% if (win_percent >= 70) { %>
@@ -31,7 +36,7 @@
                         <%= string_win_percent %>%</td>
                     </tr>
 
-                    <tr id="stat-xp_count">
+                    <tr id="stat-xp">
                         <td class="name">Опыт</td>
                         <td><%= lesta.statistics.all.xp.toLocaleString() %></td>
                         <td><%= Math.round((lesta.statistics.all.xp / lesta.statistics.all.battles)).toLocaleString() %></td>

@@ -8,6 +8,9 @@ const app = express()
 // ejs init
 app.set('view engine', 'ejs');
 
+// fs init
+const fs = require('fs');
+
 // get constants from .env file
 const PORT = process.env.PORT || 3000
 const LESTA_APP_ID = process.env.LESTA_APP_ID
@@ -20,6 +23,24 @@ const https = require('https')
 
 // set up default path to content
 app.use(express.static(`${__dirname}/views`));
+
+
+app.get("/example", (req, res) => {
+    
+    let rawdata = fs.readFileSync('views/src/examplePlayerData.json');
+    let parsedData = JSON.parse(rawdata);
+    req.query.id = 32416623
+    try {
+        if (parsedData.data[req.query.id]) {
+            res.render("stat", { lesta: parsedData.data[req.query.id], queryParams: req.query, APP_NAME: APP_NAME })
+        } else {
+            res.send("Такого игрока не существует!")
+        }
+    } catch {
+        res.render("stat_searchPlayer", { lesta: { nickname: null, APP_NAME: APP_NAME } })
+    }
+
+})
 
 app.get("/stat", (req, res) => {
     https.get(`https://api.wotblitz.ru/wotb/account/info/?application_id=${LESTA_APP_ID}&account_id=${req.query.id}`, (resp) => {
