@@ -36,20 +36,35 @@
                         <%= string_win_percent %>%</td>
                     </tr>
 
+                    <tr id="stat-damage_dealt">
+                        <td class="name">Урон</td>
+                        <td><%= lesta.statistics.all.damage_dealt.toLocaleString() %></td>
+                        <td><%= Math.round((lesta.statistics.all.damage_dealt / lesta.statistics.all.battles)).toLocaleString() %></td>
+                    </tr>
+
                     <tr id="stat-xp">
                         <td class="name">Опыт</td>
                         <td><%= lesta.statistics.all.xp.toLocaleString() %></td>
                         <td><%= Math.round((lesta.statistics.all.xp / lesta.statistics.all.battles)).toLocaleString() %></td>
                     </tr>
 
-                    <tr id="stat-damage_dealt">
-                        <td class="name">Урон</td>
-                        <td><%= lesta.statistics.all.damage_dealt.toLocaleString() %></td>
-                        <td><%= Math.round((lesta.statistics.all.damage_dealt / lesta.statistics.all.battles)).toLocaleString() %></td>
-                    </tr>
+                    <% if (lesta.private) { %>
+                        <tr id="stat-credits">
+                            <td class="name">Кредиты</td>
+                            <td><%= lesta.private.credits.toLocaleString() %></td>
+                            <!-- <td><%= Math.round((lesta.statistics.all.damage_dealt / lesta.statistics.all.battles)).toLocaleString() %></td> -->
+                        </tr>
+                    <% } else { %>
+                        <tr>
+                            Вам необходимо <a href="/auth">войти в аккаунт</a>, чтобы увидеть больше данных.</tr>
+                    <% } %> 
                 </tbody>
             </table>
 
+            <div class="operate_stat_buttons">
+                <button class="primary">Запустить</button>
+                <button class="primary">Cбросить</button>
+            </div>
         </div>
         
 

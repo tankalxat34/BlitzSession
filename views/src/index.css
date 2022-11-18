@@ -96,18 +96,22 @@ button.primary:hover {
 }
 
 a {
-    color: #068881;
+    color: #0cb15c;
     transition: .3s;
     text-decoration: none;
 }
 a:hover {
-    color: #09c17e;
+    color: #0bdea3;
 }
 
 div.title-block {
     background-color: rgba(0, 0, 0, 0.25);
     padding: 30px;
     position: sticky top;
+}
+
+.operate_stat_buttons {
+    margin: 30px 20px;
 }
 
 .footer-links a {
